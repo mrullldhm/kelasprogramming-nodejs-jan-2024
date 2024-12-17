@@ -37,9 +37,11 @@ const m = require("./math") //declare and received the exported object
 const a = m.add(15, 3)
 const b = m.subtract(50, 3)
 const c = m.multiply(0, 3)
+console.log("EXPORTED")
 console.log(a,b,c)
 
 const t = require("./time") //declare and received the exported object
+console.log("EXPORTED")
 console.log(t.time, "time")
 console.log(t.hours, "hours")
 console.log(t.minutes, "minutes")

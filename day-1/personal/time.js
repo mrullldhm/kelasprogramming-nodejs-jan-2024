@@ -1,3 +1,4 @@
+// LOCAL MODULES
 //Time declaration
 const time = new Date()
 const hours = time.getHours()
@@ -6,6 +7,7 @@ const seconds = time.getSeconds()
 const day = time.getDay()
 const month = time.getMonth()
 
+console.log("ORIGINAL")
 console.log(time, "time")
 console.log(hours, "hours")
 console.log(minutes, "minutes")

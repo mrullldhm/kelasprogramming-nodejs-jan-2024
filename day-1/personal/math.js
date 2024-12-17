@@ -1,3 +1,4 @@
+//LOCAL MODULES
 //Mathematical operations
 function add (a,b) {
     return a + b
@@ -14,6 +15,7 @@ function multiply (a,b) {
 const a = add (5,3)
 const b = subtract (5,3)
 const c = multiply (5,3)
+console.log("ORIGINAL")
 console.log(a,b,c)
 
 const mathOperation = {
