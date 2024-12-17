@@ -1,18 +1,22 @@
 //CORE MODULES
 // This a Crypto Modules
 // const crypto = require ("crypto");
-//or
 const crypto = require ("node:crypto")
-const randomInt = crypto.randomInt(0,1000)
-const randomString = crypto.randomBytes(10)
 
+// Example 1
+const randomInt = crypto.randomInt(0,1000)
 console.log(randomInt)
+
+// Example 2
+const randomString = crypto.randomBytes(10)
 console.log(randomString.toString("hex"))
 
+// Example 3
 const name = "Amirul"
 const nameWithId = name + "-" + randomInt
 console.log(nameWithId)
 
+//Example 4
 //Universally Unique Identifier
 const uuid = crypto.randomUUID()
 console.log(uuid)
