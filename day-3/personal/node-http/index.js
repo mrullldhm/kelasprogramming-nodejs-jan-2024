@@ -3,34 +3,24 @@
 const http = require("http")
 
 const server = http.createServer(function(req, res){
-// respond to the request
-//     // Example 1    
-//     // Using response object to send a HTML response
-//     // Header
-//     res.writeHead(200, { "Content-Type": "text/html"})
-//     // Body
-//     res.write('<div style="background-color:red"><h1>Hello World</h1></div>')
-//     // End the response. If not the browser will keep loading
-//     res.end()
-// })
+// Respond To The Request
 
-    //Example 2
-    // Using response object to send a JSON data response
-    // Header
-    res.writeHead(200, { "Content-Type": "application/json"})
-    // Body
-    res.write(JSON.stringify({name: "John", age: 30}))
-    // End the response. If not the browser will keep loading
-    res.end()
+// Example 1, Using response object to send a HTML response
+res.writeHead(200, { "Content-Type": "text/html"})          // Header
+res.write('<div style="background-color:red"><h1>Hello World</h1></div>')// Body
+res.end()                                                   // End the response. If not the browser will keep loading
+
+//Example 2, Using response object to send a JSON data response
+res.writeHead(200, { "Content-Type": "application/json"})   // Header
+res.write(JSON.stringify({name: "John", age: 30}))          // Body
+res.end()                                                   // End the response. If not the browser will keep loading
+
+//Example 3, Using response object to make redirection
+res.writeHead(301, {Location: "https://www.google.com"})    // Header
+res.end()                                                   // End the response. If not the browser will keep loading
+
 })
-
-//     //Example 3
-//     // Using response object to make redirection
-//     // Header
-//     res.writeHead(301, {Location: "https://www.google.com"})
-//     // End the response. If not the browser will keep loading
-//     res.end()
-// })
+server.listen(8888)
 
 // Why need port number?
 // First we need to connect to the server using IP address 
@@ -39,7 +29,6 @@ const server = http.createServer(function(req, res){
 // node server listens on port 8888
 // http://localhost:port or http://127.0.0.1:port- this is the url to our own connect to the server
 
-server.listen(8888)
 
 // http status codes
 // 1xx - Informational
