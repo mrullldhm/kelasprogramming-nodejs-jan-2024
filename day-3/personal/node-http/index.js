@@ -1,19 +1,57 @@
 // HTTP Core Modules
 // http.createServer([options][, requestListener])
 const http = require("http");
-const { console } = require("inspector");
 
 const server = http.createServer(function (req, res) {
     // Request
-    const url = req.url;
-    console.log(url);
-    
+    // We can handle different urls to send different responses
+    const url = req.url.toLowerCase()
+    console.log(url)
+
+    if(url === '/') {
+        res.writeHead(200, { "Content-Type": "text/html" }) // Header
+        res.write('<div style="background-color:red"><h1>HOME</h1></div>') // Body
+        res.end() 
+        return
+    }
+
+    if(url === '/about') {
+        res.writeHead(200, { "Content-Type": "text/html" }) // Header
+        res.write('<div style="background-color:red"><h1>ABOUT</h1></div>') // Body
+        res.end() 
+        return
+    }
+
+    if(url === '/data') {
+        res.writeHead(200, { "Content-Type": "application/json" }); // Header
+        res.write(JSON.stringify({ name: "Amirul", age: 30 })); // Body
+        res.end()
+        return
+    }
+
+    if(url === '/youtube') {
+        res.writeHead(301, { Location: "https://www.youtube.com" }); // Header
+        res.write("Redirecting..."); // Optional response body
+        res.end() 
+        return
+    }
+
+    res.writeHead(400, { "Content-Type": "text/html" }) // Header
+    res.write('<div style="background-color:red"><h1>PAGE NOT FOUND</h1></div>') // Body
+
+
+
+
+
+
+
+
     
     // Respond
     // Example 1: Using the response object to send an HTML response
-    res.writeHead(200, { "Content-Type": "text/html" }); // Header
-    res.write('<div style="background-color:red"><h1>Hello World</h1></div>'); // Body
-    res.end(); // End the response. If not, the browser will keep loading.
+    // res.writeHead(200, { "Content-Type": "text/html" }) // Header
+    // res.write('<div style="background-color:red"><h1>HOME/h1></div>') // Body
+    // res.end() // End the response. If not, the browser will keep loading.
 
     // Example 2: Using the response object to send JSON data
     // res.writeHead(200, { "Content-Type": "application/json" }); // Header
@@ -24,9 +62,11 @@ const server = http.createServer(function (req, res) {
     // res.writeHead(301, { Location: "https://www.google.com" }); // Header
     // res.write("Redirecting..."); // Optional response body
     // res.end(); // End the response.
-});
 
-server.listen(8887);
+    res.end(); // End the response.
+})
+//server.listen(portNumber)
+server.listen(2323); 
 
 // Why need port number?
 // We need to connect to the server using an IP address.
