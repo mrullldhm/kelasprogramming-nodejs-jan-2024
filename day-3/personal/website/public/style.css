@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #b67c7c;
+    color: #333;
+    line-height: 1.6;
+    font-size: 16px;
+    margin-top: 5rem;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: rgb(60, 60, 209);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+}

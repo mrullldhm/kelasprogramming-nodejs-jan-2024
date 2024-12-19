@@ -31,13 +31,14 @@ const server = http.createServer(function (req, res) {
 
     if(url === '/youtube') {
         res.writeHead(301, { Location: "https://www.youtube.com" }); // Header
-        res.write("Redirecting..."); // Optional response body
+        res.write("Redirecting..."); // Body
         res.end() 
         return
     }
 
-    res.writeHead(400, { "Content-Type": "text/html" }) // Header
+    res.writeHead(404, { "Content-Type": "text/html" }) // Header
     res.write('<div style="background-color:red"><h1>PAGE NOT FOUND</h1></div>') // Body
+
 
 
 
