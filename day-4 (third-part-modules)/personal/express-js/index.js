@@ -12,7 +12,7 @@ app.use(express.static("public"))   // initialise static folder
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 
-// get request 
+// GET request 
 app.get("/", function (req, res) {
     const homePagePath = path.join(__dirname, "pages", "index.html")
     const homePage = fs.readFileSync(homePagePath, "utf-8")
@@ -27,10 +27,20 @@ app.get("/bmi-form", function (req, res) {
     res.send(bmiForm)
 })
 
-app.get("/bmi-result", function (req, res) {
-    const bmi = req.query.bmi
+app.post("/bmi-result", function (req, res) {
+    // Request to view the data from the form
+    const data = req.body
+    console.log(data)
+    // From the requested data, calculate the data and view it
+    const weight = data.weight
+    const height = data.height
+    const bmi = (weight / (height * height)).toFixed(2)
+    console.log(bmi);
+
     const bmiResultPath = path.join(__dirname, "pages", "bmi-result.html")
     let bmiResult = fs.readFileSync(bmiResultPath, "utf-8")
+
+    // Replace the [[BMI-RESULT]] placeholder with the calculated BMI value
     if (bmi) {
         bmiResult = bmiResult.replace("[[BMI-RESULT]]", bmi)
     } else {
@@ -39,20 +49,6 @@ app.get("/bmi-result", function (req, res) {
 
     res.setHeader("Content-Type", "text/html")
     res.send(bmiResult)
-})
-
-// POST request from BMI form
-app.post ("/calculate", function (req, res) {
-    // View the data from the form
-    const data = req.body
-    console.log(data)
-    // Calculate the data and view it
-    const weight = data.weight
-    const height = data.height
-    const bmi = (weight / (height * height)).toFixed(2)
-    console.log(`BMI = ${bmi}`)
-    // Redirect to the BMI-result page + pass the BMI value to the URL
-    res.redirect("/bmi-result" + "?bmi=" + bmi)
 })
 
 // Not found page, 404
