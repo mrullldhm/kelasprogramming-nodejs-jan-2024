@@ -1,0 +1,17 @@
+{
+  "name": "bitly",
+  "version": "1.0.0",
+  "description": "creating bitly website",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch index.js",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "mrullldhm",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
