@@ -22,5 +22,6 @@ if (extFile === ".jpeg") {
     console.log("This is not a jpeg file");
   }
 
+// Global Variables
 console.log(__dirname);
 console.log(__filename);
