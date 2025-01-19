@@ -12,20 +12,20 @@
     It includes features for hashing, encryption, decryption, signing, and verifying data. 
     The crypto module is built on OpenSSL, a widely used cryptographic library.
     
-    Crypto Module
+    Import Crypto Module
     const crypto = require ("node:crypto")
 
 ### File System, fs
     The fs module in Node.js stands for File System and provides functionalities to interact with the file system. 
     It allows developers to read, write, update, delete, and manipulate files and directories on the server. 
 
-    FS Module
+    Import FS Module
     const fs = require("fs")
 
 ### Path
     The path module in Node.js provides utilities for working with file and directory paths. It helps in handling and transforming file paths in a way that is platform-independent, which is especially useful when building cross-platform applications.
 
-    Path Module
+    Import Path Module
     const path = require("path")
 
 

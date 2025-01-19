@@ -24,9 +24,22 @@
 
 ### Port
     Port is a logical endpoint used by the server to manage network traffic and distinguish between different services or applications running on the same machine. Ports allow servers to handle multiple services simultaneously, even though they all share the same IP address.
+    
+    LocalHost
+    http://localhost:portNumber 
+    http://127.0.0.1:portNumber
 
-    HTTP Module
+    Import HTTP Module
     server.listen(2323); 
+
+### Flow of The Sever in Nodejs
+    File index.js
+        To handle the request and response
+    Folder pages
+        To handle HTML files
+    Folder public
+        To handle public/static file (CSS & JavaScript & Image)
+
 
 
 

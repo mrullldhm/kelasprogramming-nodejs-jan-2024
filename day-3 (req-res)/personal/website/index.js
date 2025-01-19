@@ -1,6 +1,6 @@
-const http = require('http')
-const fs = require('fs')
-const path = require('path')
+const http = require('http')    // HTTP module
+const fs = require('fs')        // File System module
+const path = require('path')    // Path module
 
 // Read the HTML file
 const indexHtmlPath = path.join(__dirname, 'pages', 'index.html')

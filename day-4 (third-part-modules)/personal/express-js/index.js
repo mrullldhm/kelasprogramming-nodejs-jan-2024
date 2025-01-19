@@ -1,16 +1,18 @@
-const fs = require("fs")
-const path = require("path")
+// Import Modules
 const express = require("express")
 const app =  express()
+const fs = require("fs")
+const path = require("path")
 const PORT = 8989
 
-app.use(express.static("public"))   // initialise static folder
+// Initialise static folder
+app.use(express.static("public"))   
 
-// initialise body parser (for line 47)
-// body-parser is a middleware that helps to parse the requesT body from http request and make it available under req.body as an javascript object
+// Initialise body parser (for line 47)
+// Body-parser is a tool (middleware) that helps your server understand the data sent by a user in an HTTP request.
 // parse means to analyze and process a piece of data, such as text or input, to convert it into a structured and usable format.
-app.use(express.urlencoded({extended: true}))
-app.use(express.json())
+app.use(express.urlencoded({extended: true})) // Handles data from forms.
+app.use(express.json()) //
 
 // GET request 
 app.get("/", function (req, res) {
@@ -27,13 +29,14 @@ app.get("/bmi-form", function (req, res) {
     res.send(bmiForm)
 })
 
+// POST request
 app.post("/bmi-result", function (req, res) {
     // Request to view the data from the form
     const data = req.body
     console.log(data)
     // From the requested data, calculate the data and view it
-    const weight = data.weight
-    const height = data.height
+    const weight = data.weight // data.nameOfInputField
+    const height = data.height // data.nameOfInputField
     const bmi = (weight / (height * height)).toFixed(2)
     console.log(bmi);
 
