@@ -8,7 +8,13 @@ A brief description about Third-party Modules
     The package.json file is a critical part of a Node.js project. It contains metadata about the project, including its name, version, description, and dependencies. It also defines project scripts (e.g., for testing or running the app) and the versions of Node.js or npm used. This file helps manage dependencies, versioning, and collaboration, ensuring consistency across different environments.
 
     Command Line
-    npm init
+    - npm init
+
+    Script
+      "scripts": {
+        "dev": "node --watch index.js",
+        "start": "node index.js"
+      },
 
 ### package-lock.json
     package-lock.json is automatically created (or updated) by npm when you install a third-party module
@@ -32,10 +38,15 @@ A brief description about Third-party Modules
     It helps prevent unnecessary files from being committed to the repository, reducing clutter and improving repository management.
 
 ### CommonJS
-    Uses require() to import modules and module.exports to export them.
+    - Uses require() to import modules and module.exports to export them.
+    - CommonJS is the default module system in Node.js.
+    - Use .js extension (standard)
 
 ### ESM/ModulesJS
-    Uses import and export for module handling.
+    - Uses import and export for module handling.
+    - To enablee ESM, 2 method:
+        1. need to set the "type": "module" in package.json
+        2. add .mjs extension to the file
 
 ### Express Package
     Express is a popular web application framework for Node.js.It simplifies the process of building web applications and APIs by providing a set of tools and features for handling HTTP requests and responses.
@@ -47,7 +58,7 @@ A brief description about Third-party Modules
     Import Express Package
     - const express = require("express")    
 
-### Folder "third-party-modules"
+## Folder "third-party-modules"
 - type npm init in terminal to create package.json
     * fill the package.json metadata list
     * create a script called dev and start  <br>
@@ -76,7 +87,7 @@ A brief description about Third-party Modules
             const { generate, count } = require("random-words");                <br>
             need to use ".js" file type
             
-### Folder "express-js"
+## Folder "express-js"
 - type npm init in terminal to create package.json
     * fill the package.json metadata list
     * create a script called dev and start  <br>

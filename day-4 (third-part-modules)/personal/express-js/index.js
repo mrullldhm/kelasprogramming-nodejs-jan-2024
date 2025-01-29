@@ -1,4 +1,4 @@
-// Import Modules
+// Modules, CommonJS (CJS)
 const express = require("express")
 const app =  express()
 const fs = require("fs")

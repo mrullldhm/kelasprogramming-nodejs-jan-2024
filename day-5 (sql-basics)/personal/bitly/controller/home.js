@@ -1,13 +1,14 @@
+// Modules, ES Modules (ESM)
 import fs from "fs"
 import path from "path"
 
+// Controller
 const Home = (req, res) => {
-    // replace __dirname with process.cwd().
-    // __dirname didnt work in ESModule
+    // ESM dont use __dirname, it use process.cwd()
     const filePath = path.join(process.cwd(), "pages", "index.html") 
     const page = fs.readFileSync(filePath, "utf8")
     res.send(page)
 }
 
-// export the function in ESM
+// Export the function in ESM as  local module
 export default Home
