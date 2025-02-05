@@ -30,7 +30,7 @@ function GenerateShortUrl(req, res) {
     url: url,
     shortUrl: shortUrl,
   };
-  fileData.push(newData);
+  fileData.push(newData); // used to add (push) a new item (newData) to the end of an array (fileData)
 
   // write data to file
   const stringData = JSON.stringify(fileData, null, 2);

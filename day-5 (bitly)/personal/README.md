@@ -45,6 +45,4 @@ A brief description of Controller, View, SQL
     - randomString - 6 characters generated randomly using crypto module
     - save the long url and short url in file form JSON or database
     - send the short url in the response
-
-### SQL
     
