@@ -1,4 +1,4 @@
-# Day 5
+# Day 6
 A brief description of Tableplus. PostgreSQL. and SQL
 
 ### SQL

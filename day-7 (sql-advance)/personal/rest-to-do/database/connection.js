@@ -9,15 +9,15 @@ const { Pool } = pg
 // API -- pg.Pool -- new Pool
 export const pool = new Pool({
     //Database connection configuration
-    host: 'localhost',        // The database server address (running on local machine)
-    user: 'postgres',         // The database username (default for PostgreSQL is 'postgres')
-    password: '1457',           // The password for the database user
-    database: 'to-do-app',    // The name of the database
-    port: 5432,               // PostgreSQL default port
+    host: process.env.PGHOST,           // The database server address (running on local machine)
+    user: process.env.PGUSER,           // The database username (default for PostgreSQL is 'postgres')
+    password: process.env.PGPASSWORD,   // The password for the database user
+    database: process.env.PGDATABASE,   // The name of the database
+    port: process.env.PGPORT,           // PostgreSQL default port
     // Connection pool settings
-    max: 20,                  // Maximum number of connections in the pool
-    idleTimeoutMillis: 30000,  // Time (in ms) a connection can stay idle before closing (30 sec)
-    connectionTimeoutMillis: 2000, // Time (in ms) to wait before timing out while connecting (2 sec)
+    max: 20,                        // Maximum number of connections in the pool
+    idleTimeoutMillis: 30000,       // Time (in ms) a connection can stay idle before closing (30 sec)
+    connectionTimeoutMillis: 2000,  // Time (in ms) to wait before timing out while connecting (2 sec)
 });
 
 // SQL query

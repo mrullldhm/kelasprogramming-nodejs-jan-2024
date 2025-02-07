@@ -5,13 +5,14 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "node --watch index.js",
-    "start": "node index.js",
+    "dev": "PGHOST='localhost' PGUSER='postgres' PGPASSWORD='1457' PGDATABASE='to-do-app' PGPORT='5432' node --watch index.js",
+    "start": "PGHOST='database.aws.com' PGUSER='adminaws' PGPASSWORD='VSAyw2' PGDATABASE='to-do-app-aws' PGPORT='2132' node --watch index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "mrullldhm",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "express": "^4.21.2",
     "pg": "^8.13.1"
   }
