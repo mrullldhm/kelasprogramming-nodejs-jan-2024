@@ -77,8 +77,25 @@ A brief description of connection between PostgreSQL and Node.js.
 
 ### Validate email provider
 
-### Hash
+### Hashing
     Hashing is the process of converting data into a fixed-length string of characters, typically using a one-way function. The resulting hash value is unique for each input and is used to verify the integrity of the data.
 
     Website
         https://www.npmjs.com/package/bcrypt
+
+### Authentication (Who are you?)
+    Authentication is the process of verifying who a user is. The goal is to confirm a user's identity before granting access.
+
+    Bearer token
+        Bearer tokens are a type of token that is used to authenticate a user's request to a server. They are typically used in APIs and are passed in the Authorization header of a request.
+
+### Authorization (What are you allowed to do?)
+    Authorization determines what actions or resources a user is allowed to access after authentication.
+
+### Tokens (How do we maintain the session?)
+    Tokens are digital keys that help maintain authentication and authorization between requests. They allow users to stay logged in without needing to re-enter credentials.
+
+    NPM
+        https://www.npmjs.com/package/jsonwebtoken
+    Installation
+        npm i jsonwebtoken

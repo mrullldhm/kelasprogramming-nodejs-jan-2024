@@ -7,8 +7,8 @@ const query = `
     CREATE TABLE IF NOT EXISTS to_dos (
         id SERIAL PRIMARY KEY,
         text VARCHAR(255) NOT NULL,
-        status VARCHAR(255) NOT NULL,
-        user_id INT REFERENCES users(id),
+        status BOOLEAN DEFAULT false,
+        user_id INTEGER REFERENCES users(id),
         created_at TIMESTAMP DEFAULT NOW()
     );
     `;

@@ -1,8 +1,7 @@
 import { pool } from "../../database/connection.js";
 import bcrypt from 'bcrypt';
-
+// SQL query
 // $ sign is a placeholder for dynamic value
-// A dynamic value is a value that changes at runtime based on user input, system state, or external data sources
 const query = `
 INSERT INTO users (username, password, email, is_admin)
 VALUES ($1, $2, $3, $4)
@@ -14,7 +13,7 @@ const createUser = async (req, res) => {
         const username = req.body.username;
         const password = req.body.password;
         const email = req.body.email;
-        const isAdmin = req.body.isAdmin;
+        const is_admin = req.body.is_admin ? true : false;;
 
         // validate the request body
         if (!username || !password || !email) {
@@ -34,12 +33,13 @@ const createUser = async (req, res) => {
         // hash the password
         const salt = await bcrypt.genSalt(SALTROUNDS);
         const hashedPassword = await bcrypt.hash(password, salt);
-        // SQL query
+        
+        // Execute the query
         const dbRespond = await pool.query(query, [
             username, 
             hashedPassword, 
             email, 
-            isAdmin]);
+            is_admin]);
         console.log(dbRespond);
         res.status(201).json({ 
             message: 'User is created' });

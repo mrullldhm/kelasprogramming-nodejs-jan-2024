@@ -7,6 +7,10 @@ import createUser from './controller/user.controller/create.js';
 import { readAllUsers, readUserById }  from './controller/user.controller/read.js';
 import updateUser from './controller/user.controller/update.js';
 import deleteUser from './controller/user.controller/delete.js';
+import createToDo from './controller/to-do.controller/create.js';
+import listAllToDos from './controller/to-do.controller/read.js';
+import createToken from './controller/auth.js';
+import isAuth from './middleware/isAuth.js';
 
 const app = express();
 const PORT = 8787;
@@ -19,17 +23,23 @@ app.use(express.urlencoded({ extended: true }));  //Allows the server to underst
 // DDL
 databaseInit();
 
-// GET and POST health controller
-// DML will be done in controller
+// Health controller
 app.get('/', healthController.get);
 app.post('/', healthController.post);
-app.get('/users', readAllUsers)
-app.get('/users/:id', readUserById)
-app.put('/users/:id', updateUser)
-app.delete('/users/:id', deleteUser)
 
-app.post('/register', createUser)
+// user controller
+app.post('/register', createUser)       // Create
+app.post('/login', createToken)
+app.get('/users', readAllUsers)         // Read
+app.get('/users/:id', readUserById)     // Read
+app.put('/users/:id', updateUser)       // Update
+app.delete('/users/:id', deleteUser)    // Delete
 
+
+
+// to-do controller
+app.post('/todos', isAuth, createToDo)  // Create
+app.get('/todos', isAuth, listAllToDos) // Read
 
 // NOT FOUND controller
 app.use(notFound)
