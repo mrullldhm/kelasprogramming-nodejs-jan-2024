@@ -35,8 +35,6 @@ app.get('/users/:id', readUserById)     // Read
 app.put('/users/:id', updateUser)       // Update
 app.delete('/users/:id', deleteUser)    // Delete
 
-
-
 // to-do controller
 app.post('/todos', isAuth, createToDo)  // Create
 app.get('/todos', isAuth, listAllToDos) // Read
